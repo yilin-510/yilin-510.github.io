@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>日常随笔 on Yilin&#39;s Blog</title>
+        <link>https://yilin-510.github.io/categories/%E6%97%A5%E5%B8%B8%E9%9A%8F%E7%AC%94/</link>
+        <description>Recent content in 日常随笔 on Yilin&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Wed, 10 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://yilin-510.github.io/categories/%E6%97%A5%E5%B8%B8%E9%9A%8F%E7%AC%94/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>欢迎来到10的博客</title>
+        <link>https://yilin-510.github.io/post/welcomeblog/</link>
+        <pubDate>Wed, 10 Dec 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://yilin-510.github.io/post/welcomeblog/</guid>
+        <description>&lt;img src="https://yilin-510.github.io/post/welcomeblog/headimage.jpg" alt="Featured image of post 欢迎来到10的博客" /&gt;&lt;p&gt;&lt;strong&gt;2025.12.10这个博客正式初步创建成功！！&lt;/strong&gt;
+&lt;strong&gt;本篇博文将会置顶7天：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;欢迎恰巧在最近看到这个博客的有缘人！！&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;监督自己至少7天内要写下一篇技术博文🙂&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;创建自己的博客的idea来源&#34;&gt;创建自己的博客的idea来源
+&lt;/h2&gt;&lt;p&gt;本质上是日常随笔分类栏，所以就写得随意一点啦！（但是还是忍不住写序号😳）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;感觉自己花了太多奇奇怪怪的时间在奇奇怪怪的事情上，包括但不限于天天蹲宿舍睡觉，有点无奈自己的死肥宅属性，想通过一个公开的地方来分享自己，或者说通过分享来监督自己认真生活一点，但是QQ,微信中，朋友，长辈太多，发自己学到的内容，或者是强调自己正在学什么东西，如果是我朋友圈里面有这样一个人，我最开始一定会先感慨，一个人能坚持做某一个东西好厉害，但是长久之后，也会觉得有点麻木【其实更多的原因是，让别人知道我到底是怎么想一件事或者是做一件事，会让我不自觉地带入别人的角度来看我自己的事，然后就开始反思自己的不足，陷入内耗中（极容易内耗人士头疼)】，小红书，b站，知乎，这些地方，对于我微不足道的行动，大多数评论应该都会是&amp;quot;就这？“，可是鼠鼠也有自己的快乐，烦恼，和努力，&lt;strong&gt;比较是偷走幸福感的小偷&lt;/strong&gt;，但是，鼠鼠太容易内耗了，即使能够安慰自己，也很难不被影响，所以，写一个自己的博客来监督自己认真学习，好好生活似乎是最好的选择了【反正能刷到咱小小鼠鼠博客的人也不多🤪】&lt;/li&gt;
+&lt;li&gt;真的很想系统性的学习机器学习相关的内容，感觉自己一直在乱学，不成系统，这样一点也不好，所以可以看到分类中有ML,DL,RL这三类，打算用讲的方式来学，让自己系统性的能够叙述好相关的内容，那自己的知识也就能成体系了【费曼学习法嘛，10评价是：好用👍】&lt;/li&gt;
+&lt;li&gt;前期花了很多时间来学嵌入式软件相关的内容，目前还是【RM电控】，有一些自己这一两年学到的东西，也想有个地方可以总结分享，真的很喜欢ai方向嘛，但是学到就是赚到，看情况写着玩吧，太多大佬写了，大佬写得也好，其实咱这种，写不写也无所谓，不过后面退休前，还是要整理一下经验【手上囤的自己写的无条理文章太多，发出来有待整理】，所以这个分类就慢慢来写了🙇‍♀️&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;博客主要内容&#34;&gt;博客主要内容
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;机器学习相关学习日志上传&lt;/li&gt;
+&lt;li&gt;生活中有好玩的也会上传&lt;/li&gt;
+&lt;li&gt;后期有时间会陆续整理好RM电控相关内容上传&lt;/li&gt;
+&lt;li&gt;如果后期写起来感觉很好玩，可能还会有打卡相关内容【监督自己认真规律生活】上传&lt;/li&gt;
+&lt;li&gt;其他奇奇怪怪技能上传分享&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;目前还有待完善&#34;&gt;目前还有待完善
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;评论区功能，打算用Giscus,但是目前还未看懂这个配置😅&lt;/li&gt;
+&lt;li&gt;想diy一下这个主题，也就是顺带学一下Go语言，Hugo细致内容相关的东西，但是目前没有那么多闲暇的时间来学这个相关的，等待闲暇时间的到来中&amp;hellip;&amp;hellip;..&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
