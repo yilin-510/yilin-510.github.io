@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>控制方向内容学习 on Yilin&#39;s Blog</title>
+        <link>https://yilin-510.github.io/tags/%E6%8E%A7%E5%88%B6%E6%96%B9%E5%90%91%E5%86%85%E5%AE%B9%E5%AD%A6%E4%B9%A0/</link>
+        <description>Recent content in 控制方向内容学习 on Yilin&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Fri, 02 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://yilin-510.github.io/tags/%E6%8E%A7%E5%88%B6%E6%96%B9%E5%90%91%E5%86%85%E5%AE%B9%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>动态模型建模学习</title>
+        <link>https://yilin-510.github.io/post/dynamic-systems-modeling/</link>
+        <pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate>
+        
+        <guid>https://yilin-510.github.io/post/dynamic-systems-modeling/</guid>
+        <description>&lt;img src="https://yilin-510.github.io/post/dynamic-systems-modeling/headimage.png" alt="Featured image of post 动态模型建模学习" /&gt;&lt;h1 id=&#34;动态模型&#34;&gt;动态模型
+&lt;/h1&gt;&lt;h2 id=&#34;基础知识了解&#34;&gt;基础知识了解
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;拉普拉斯变换&lt;/strong&gt;：&lt;a class=&#34;link&#34; href=&#34;https://zh.wikipedia.org/wiki/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;拉普拉斯变换 - 维基百科，自由的百科全书&lt;/a&gt;
+&lt;ol&gt;
+&lt;li&gt;在物理及工程上常用来分析线性非时变系统，作时域和频域之间的变换。&lt;/li&gt;
+&lt;li&gt;提供另一种系统的描述方程，可以简化分析系统行为的时间。像时域下的线性非时变系统，在频域下会变换为代数方程，在时域下的卷积会变成频域下的乘法。&lt;/li&gt;
+&lt;li&gt;对于所有实数 $t \geq 0$，函数 $f(t)$ 的拉普拉斯变换是函数 $F(s)$，定义为：$$ F(s) = \int_{0}^{\infty} e^{-st} f(t), \mathrm{d}t $$其中频率参数 $s$ 是一个复数：$$ s = \sigma + i\omega, $$$\sigma$ 和 $\omega$ 为实数。除了 $F$，有时我们也使用 $\mathcal{L}f$ 或 $\mathcal{L}_{t}{f(t)}$ 来表示拉普拉斯变换，$\mathcal{L}$ 是一个运算符号。
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;$s$ 不是一个常数，它是一个“独立变量”&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;当你算完积分，把 $t$ 的上下限（$0$ 和 $\infty$）代入后，$t$ 就消失了。剩下的结果只和 $s$ 有关。这时，$F(s)$ 就变成了一个以 $s$ 为自变量的函数。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;$t$ 域（时域）：&lt;/strong&gt; 变量是 $t$（时间），$f(t)$ 描述信号随时间怎么变。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;$s$ 域（复频域）：&lt;/strong&gt; 变量是 $s$（复频率），$F(s)$ 描述信号在不同复频率下的特征。&lt;/li&gt;
+&lt;li&gt;改变 $s$ 的值（改变 $\sigma$ 或 $\omega$），是为了“扫描”这个信号在不同频率 ($\omega$) 和不同衰减/增长率 ($\sigma$) 下的成分。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;举例：假设 $f(t) = e^{-at}$ （$a$ 是常数，表示衰减速度）。我们来算它的拉普拉斯变换：$$F(s) = \int_{0}^{\infty} e^{-st} e^{-at} dt = \int_{0}^{\infty} e^{-(s+a)t} dt$$
+&lt;ul&gt;
+&lt;li&gt;积分时：我们将 $s$ 视为常数，算出积分为 $\left[ \frac{-1}{s+a}e^{-(s+a)t} \right]_0^\infty$。&lt;/li&gt;
+&lt;li&gt;代入后：得到结果 $F(s) = \frac{1}{s+a}$。&lt;/li&gt;
+&lt;li&gt;看结果 $F(s) = \frac{1}{s+a}$：这里 $a$ 是常数（原信号的特征）。$s$ 是变量。&lt;/li&gt;
+&lt;li&gt;你可以问：当 $s=1$ 时 $F(s)$ 是多少？当 $s=2+3i$ 时 $F(s)$ 是多少？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;拉普拉斯变换 $L$ 的本质，就是把一个关于时间 $t$ 的函数 $f(t)$，映射（翻译）成了一个关于复变量 $s$ 的函数 $F(s)$。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;使用时注意拉氏变换的性质和定理，简便运算&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;传递函数&lt;/strong&gt;：&lt;a class=&#34;link&#34; href=&#34;https://zh.wikipedia.org/wiki/%E4%BC%A0%E9%80%92%E5%87%BD%E6%95%B0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;传递函数 - 维基百科，自由的百科全书&lt;/a&gt;
+&lt;ol&gt;
+&lt;li&gt;经常专门用于如本文所述的线性时不变系统（LTI）&lt;/li&gt;
+&lt;li&gt;设普通线性非时变系统的输入为$x(t)$，输出为 $y(t)$，并且 $x(t)$ 和 $y(t)$ 的拉普拉斯变换分别为：$$ X(s) = \mathcal{L}{x(t)} \equiv \int_{0}^{\infty} x(t)e^{-st}dt$$$$ Y(s) = \mathcal{L}{y(t)} \equiv \int_{0}^{\infty} y(t)e^{-st}dt$$那么输出与输入之间通过传递函数 $H(s)$ 发生关系：$$ Y(s) = H(s), X(s), $$并且传递函数为：$$ H(s) = \frac{Y(s)}{X(s)}. $$&lt;/li&gt;
+&lt;li&gt;在控制工程和控制理论中，传递函数是从拉普拉斯变换推导出来的。传递函数是经典控制工程中的一个主要工具，但是，在分析多输入多输出（MIMO）系统的时候它就显得很笨拙了，在分析这样的系统时大部分被状态空间表示所代替。尽管如此，通常仍可以从任意的线性系统得到传递矩阵，用于分析其动态及其他特性：传递矩阵中的每个元素都是与特定输入和特定输出相关的一个传递函数。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;线性非时变系统理论（LTI系统理论）&lt;/strong&gt;：&lt;a class=&#34;link&#34; href=&#34;https://zh.wikipedia.org/wiki/%E7%BA%BF%E6%80%A7%E6%97%B6%E4%B8%8D%E5%8F%98%E7%B3%BB%E7%BB%9F%E7%90%86%E8%AE%BA&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;线性非时变系统理论 - 维基百科，自由的百科全书&lt;/a&gt; :
+&lt;ol&gt;
+&lt;li&gt;任何 LTI 系统都可以完全用一个单一方程来表示，该方程称为系统的冲激响应。系统的输出可以简单表示为输入信号与系统的冲激响应的卷积。&lt;/li&gt;
+&lt;li&gt;任何 LTI 系统的特征可由频域的系统传递函数刻画，它是系统冲激响应的拉普拉斯变换（在离散时间系统的情况下为 Z 变换）。由于这些变换的性质，该系统在频域的输出是传递函数与输入的变换的乘积。换句话说，时域中的卷积相当于频域中的乘法。&lt;/li&gt;
+&lt;li&gt;任何可以被模拟为常系数线性齐次微分方程的系统都是 LTI 系统。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;线性&lt;/strong&gt;：指系统的输入和输出之间的关系是一个线性映射&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;时不变性&lt;/strong&gt;：即对于具有时不变性的系统，若系统输入x(t)，对应的输出为y(t)，则输入为x(t+τ)时，系统的输出为y(t+τ)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;卷积&lt;/strong&gt;：设 $f(t)$ 和 $g(t)$ 是定义在实数集 $\mathbb{R}$ 上的两个可积函数，定义二者的卷积 $(f * g)(t)$ 为如下特定形式的积分变换：$$ (f * g)(t) = \int_{-\infty}^{\infty} f(\tau)g(t - \tau)d\tau$$&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;冲激响应&lt;/strong&gt;：对于单位脉冲函数 $\delta(t)$ 和某个函数 $h(t)$，二者卷积的结果就是 $h(t)$ 本身，该函数 $h(t)$ 被称为系统的冲激响应：$$ (\delta * h)(t) = \int_{-\infty}^{\infty} \delta(\tau)h(t - \tau) d\tau = h(t)$$&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;在连续时间线性非时变（LTI）系统中，输出信号 $y(t)$&lt;/strong&gt; : 可以表示为输入信号 $x(t)$ 与系统冲激响应 $h(t)$ 的卷积：$$ y(t) = (x * h)(t) \triangleq \int_{-\infty}^{\infty} x(t - \tau)h(\tau)d\tau = \int_{-\infty}^{\infty} x(\tau)h(t - \tau)d\tau$$
+&lt;ol&gt;
+&lt;li&gt;特例（测定身份）：(输入是脉冲，输出就是冲激响应)$$\delta(t) \longrightarrow \boxed{\text{System}} \longrightarrow h(t)$$&lt;/li&gt;
+&lt;li&gt;通例（实际应用）：(输入是任意信号，输出是输入与冲激响应的卷积)$$x(t) \longrightarrow \boxed{\text{System}} \longrightarrow y(t) = x(t) * h(t)$$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;线性系统不是时不变&lt;/strong&gt;：在 LTI 系统中，无论你几点钟给系统一个脉冲，它的反应 $h(t)$ 都是一样的。但在时变系统中，系统本身在“老化”、“变质”或者“受环境控制”。
+&lt;ul&gt;
+&lt;li&gt;数学表现：微分方程的系数不再是常数，而是时间的函数
+&lt;ul&gt;
+&lt;li&gt;LTI: $a \frac{dy}{dt} + b y(t) = x(t)$ （$a, b$ 是常数）&lt;/li&gt;
+&lt;li&gt;LTV: $a(t) \frac{dy}{dt} + b(t) y(t) = x(t)$ （系数 $a(t), b(t)$ 会随时间改变）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;线性系统不是时不变可以用其他方法来解决，如格林函数方法。同样的方法时，必须使用问题的初始条件是不为空。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;格林函数方法&lt;/strong&gt; ：在 LTI 系统里，我们用 $h(t-\tau)$ 这种形式，因为响应只取决于“距离上次输入过了多久”。但在 LTV 系统里，“什么时候输入的”和“现在是什么时候”同样重要。因此，格林函数 $G(t, \tau)$ 必须带两个变量：
+&lt;ul&gt;
+&lt;li&gt;$\tau$：输入脉冲发生的时刻。&lt;/li&gt;
+&lt;li&gt;$t$：观察响应的时刻。
+系统的输出 $y(t)$ 就不再是简单的单变量卷积，而是一个更通用的加权积分：$$y(t) = \int_{-\infty}^{t} G(t, \tau) x(\tau) d\tau$$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;初始条件不为空&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;零初始状态（零状态响应）： 系统一开始是静止的（电容没电、弹簧没拉开）。此时，输出完全由输入信号引起。格林函数方法最擅长处理这种情况&lt;/li&gt;
+&lt;li&gt;初始条件不为空（全响应）： 系统在 $t=0$ 时已经有一定的能量（比如电容里存了电）。此时输出 $y(t)$ = 零输入响应（靠初始能量支撑的反应） + 零状态响应（靠外部输入产生的反应）。&lt;/li&gt;
+&lt;li&gt;格林函数通常用来计算“零状态响应”。如果你想求整个系统的表现，你必须把初始条件代入齐次方程的通解中，再加上格林函数的积分项。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;建立动态模型&#34;&gt;建立动态模型
+&lt;/h2&gt;&lt;p&gt;写出系统的动态方程
+本章主要在介绍常见的各种情况下，如何应用各种合适的定律建立动态模型，此处只详细列出机械系统动力学模型的建立方法，其他的基本大同小异，只有使用的公式略有不同，基本都为&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;根据定律建立系统的动态方程&lt;/li&gt;
+&lt;li&gt;根据动态方程，建立传递函数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;故，后续的从电路模型开始都为简单列出，相关内容应该作为参考书查看&lt;/p&gt;
+&lt;h3 id=&#34;机械系统动力学&#34;&gt;机械系统动力学
+&lt;/h3&gt;&lt;h4 id=&#34;应用牛顿定律建立动态方程&#34;&gt;应用牛顿定律，建立动态方程
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;平移运动：$F = ma$&lt;/li&gt;
+&lt;li&gt;旋转运动：$M = Ia$
+&lt;ul&gt;
+&lt;li&gt;$I$ 为物体折合到质心的转动惯量&lt;/li&gt;
+&lt;li&gt;$a$为物体的角加速度&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;建立传递函数&#34;&gt;建立传递函数
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;理清输入和输出，建立运动学微分方程&lt;/li&gt;
+&lt;li&gt;将微分方程进行拉普拉斯变换&lt;/li&gt;
+&lt;li&gt;求得输入和输出的传递函数&lt;/li&gt;
+&lt;li&gt;可使用MATLAB对整个系统的响应进行建模[原书P16]
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-matlab&#34; data-lang=&#34;matlab&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;s = tf(s&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;);  &lt;span style=&#34;color:#75715e&#34;&gt;%此为输入的信号s（拉氏变换中的s自变量）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sys = (&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;(s &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;50&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;); &lt;span style=&#34;color:#75715e&#34;&gt;%传递函数&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;step(&lt;span style=&#34;color:#ae81ff&#34;&gt;500&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; sys);  &lt;span style=&#34;color:#75715e&#34;&gt;%step函数用于计算单位阶跃输入下的线性系统时间响应&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Simulink可实现计算的仿真以及示波器观察[原书P22]&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;分布参数系统无限维系统&#34;&gt;分布参数系统（无限维系统）
+&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;指一个模型的特性不能仅仅由几个参数来表示，其模型参数与工作特性既是时间的函数，还与尺寸与空间坐标有关。&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;例：软体机械臂的质量沿着梁分布，每一部分之间都有微量变化&lt;/li&gt;
+&lt;li&gt;使用偏微分方程（PDE）分析&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;集中参数系统&#34;&gt;集中参数系统
+&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;不考虑空间变化，状态变量只随时间变化，有限自由度&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;例：将连续弯曲的物体近似为两个或更多通过弹簧链接的物体&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;电路模型&#34;&gt;电路模型
+&lt;/h3&gt;&lt;p&gt;与上述相同，写出描述的方程，传递函数&lt;/p&gt;
+&lt;h4 id=&#34;常见可用定律&#34;&gt;常见可用定律
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;KCL：在电路的任何一个&lt;strong&gt;节点&lt;/strong&gt;（Node），流入该节点的电流之和等于流出该节点的电流之和。
+&lt;ul&gt;
+&lt;li&gt;数学表达：$$\sum I_{in} = \sum I_{out} \quad \text{或} \quad \sum_{k=1}^{n} I_k = 0$$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;KVL：沿着电路中任何一个&lt;strong&gt;闭合回路&lt;/strong&gt;（Closed Loop），所有元件两端电压的代数和等于零。
+&lt;ul&gt;
+&lt;li&gt;数学表达：$$\sum V = 0 \quad \text{或} \quad \sum V_{rise} = \sum V_{drop}$$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;机电系统模型&#34;&gt;机电系统模型
+&lt;/h3&gt;&lt;p&gt;与上述相同，写出描述的方程，传递函数&lt;/p&gt;
+&lt;h4 id=&#34;常见可用定律-1&#34;&gt;常见可用定律
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;安培定律（电动机定律）：对于一段长度为 $L$、电流为 $I$ 的直导线，在磁感应强度为 $B$ 的匀强磁场中，所受的力 $F$ 为：$$F = BIl \sin(\theta)$$(其中 $\theta$ 是电流方向与磁场方向的夹角)&lt;/li&gt;
+&lt;li&gt;右手定则（发电机定则）：对于长度为 $L$ 的导体，以速度 $v$ 在磁感应强度为 $B$ 的磁场中运动时，产生的感应电动势 $E$ 为：$$E = BLv \sin(\theta)$$(其中 $\theta$ 是速度方向与磁场方向的夹角)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;电动机&#34;&gt;电动机
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;直流电动机建模&lt;/li&gt;
+&lt;li&gt;交流电动机实验&lt;/li&gt;
+&lt;li&gt;齿轮&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;热流体和热流量模型&#34;&gt;热流体和热流量模型
+&lt;/h3&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
